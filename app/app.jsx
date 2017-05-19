@@ -9,6 +9,17 @@ const {Route, Router, IndexRoute, hashHistory} = require('react-router');
 // const Main = require('Main');
 const TodoApp = require('TodoApp');
 
+var actions = require('actions');
+var store = require('configureStore').configure();
+
+store.subscribe(() => {
+  console.log('New state: ', store.getState());
+});
+
+store.dispatch(actions.addTodo('Get the mail.'));
+store.dispatch(actions.setSearchText('mail'));
+store.dispatch(actions.toggleShowCompleted());
+
 //Load foundations
 //css! is from the css-loader that was installed.
 //style! is from the style-loader that was installed and tells how to install a css file.
