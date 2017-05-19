@@ -33,3 +33,8 @@ var final = ['Dave', ...names];
 final.forEach(function (name) {
   console.log(`Hi ${name}!`);
 });
+
+//******************
+//spread operator giving syntax error:
+//npm i --save-dev babel-preset-stage-0
+//add then to webpack, then add to query presets where react and es2015 are.
