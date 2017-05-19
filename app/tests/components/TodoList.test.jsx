@@ -1,25 +1,25 @@
 //the following are the libraries needed for testing.
 const React = require('react');
 const ReactDOM = require('react-dom');
-const {Provider} = require('react-redux');
+var {Provider} = require('react-redux');
 const expect = require('expect');
 const $ = require('jQuery');
 //const TestUtils = require('react-addons-test-utils');
 const TestUtils = require('react-dom/test-utils');
 
+import {configure} from 'configureStore';
 //the following is the component we want to test.
 // const TodoList = require('TodoList');
 import ConnectedTodoList, {TodoList} from 'TodoList';
 //const Todo = require('Todo');
 import ConnectedTodo, {Todo} from 'Todo';
-import {configure} from 'configureStore';
 
 describe('TodoList', () => {
   it('Should exist.', () => {
     expect(TodoList).toExist();
   });
 
-  it('Should render one Todo component for each todo item.', () =>{
+  it('Should render one Todo component for each todo item.', () => {
     var todos = [{
       id: 1,
       text: 'Dummy test item 1',
@@ -55,7 +55,7 @@ describe('TodoList', () => {
     //the first arguement is what you want to check, the second is the class to check for.
     // var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
     var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, ConnectedTodo);
-
+    //console.log('TComponents: ',todosComponents);
     expect(todosComponents.length).toBe(todos.length);
   });
 
