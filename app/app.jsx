@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const {Route, Router, IndexRoute, hashHistory} = require('react-router');
+const {Provider} = require('react-redux');
 // const Route = require('react-router').Route;
 // const Router = require('react-router').Router;
 // const IndexRoute = require('react-router').IndexRoute;
@@ -31,7 +32,9 @@ require('style-loader!css-loader!sass-loader!applicationStyles');
 $(document).foundation();
 
 ReactDOM.render(
-  <TodoApp/>,
+  <Provider store={store}>
+    <TodoApp/>
+  </Provider>,
   // <Router history={hashHistory}>
   //   <Route exact path="/" component={Main}>
   //     // <Route path="countdown" component={Countdown}/>
