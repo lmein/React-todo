@@ -12,14 +12,20 @@ const TodoApp = require('TodoApp');
 
 var actions = require('actions');
 var store = require('configureStore').configure();
+var TodoAPI = require('TodoAPI');
 
 store.subscribe(() => {
+  var state = store.getState();
   console.log('New state: ', store.getState());
+  TodoAPI.setTodos(state.todos);
 });
 
-store.dispatch(actions.addTodo('Get the mail.'));
-store.dispatch(actions.setSearchText('mail'));
-store.dispatch(actions.toggleShowCompleted());
+//gets any todos in local storage
+var initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
+// store.dispatch(actions.addTodo('Get the mail.'));
+// store.dispatch(actions.setSearchText('mail'));
+// store.dispatch(actions.toggleShowCompleted());
 
 //Load foundations
 //css! is from the css-loader that was installed.
