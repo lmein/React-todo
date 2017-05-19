@@ -1,5 +1,5 @@
-var expect = require('expect');
-var actions = require('actions');
+const expect = require('expect');
+const actions = require('actions');
 
 describe('Actions', () => {
   it('Should generate search text action.', () => {
