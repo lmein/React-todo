@@ -8,7 +8,8 @@ import {Provider} from 'react-redux';
 // const hashHistory = require('react-router').hashHistory;
 // weather api key: df7e3c98ca0017fe242189315a17b64e
 // const Main = require('Main');
-const TodoApp = require('TodoApp');
+import TodoApp from 'TodoApp';
+import Login from 'Login';
 
 // import './../playground/firebase/index.js';
 
@@ -43,10 +44,15 @@ $(document).foundation();
 
 ReactDOM.render(
   <Provider store={store}>
-    <TodoApp/>
+    <Router history={hashHistory}>
+      <Route exact path="/">
+        <Route path="todos" component={TodoApp}/>
+        <IndexRoute component={Login}/>
+      </Route>
+    </Router>
   </Provider>,
-  // <Router history={hashHistory}>
-  //   <Route exact path="/" component={Main}>
+  //
+
   //     // <Route path="countdown" component={Countdown}/>
   //     // <IndexRoute component={Timer}/>
   //   </Route>

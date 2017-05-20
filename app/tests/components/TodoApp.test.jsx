@@ -8,7 +8,8 @@ import $ from 'jQuery';
 import TestUtils from 'react-dom/test-utils';
 
 //the following is the component we want to test.
-const TodoApp = require('TodoApp');
+import {TodoApp} from 'TodoApp';
+
 var configureStore = require('configureStore');
 //import {configure} from 'configureStore';
 // var TodoList = require('TodoList');
