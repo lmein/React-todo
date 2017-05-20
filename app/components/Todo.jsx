@@ -1,6 +1,7 @@
-var React = require('react');
-var {connect} = require('react-redux');
-var moment = require('moment');
+import React from 'react';
+import {connect} from 'react-redux';
+import moment from 'moment';
+
 var actions = require('actions');
 
 export var Todo = React.createClass({

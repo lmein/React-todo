@@ -1,10 +1,10 @@
 //the following are the libraries needed for testing.
-const React = require('react');
-const ReactDOM = require('react-dom');
-const expect = require('expect');
-const $ = require('jQuery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import expect from 'expect';
+import $ from 'jQuery';
 //const TestUtils = require('react-addons-test-utils');
-const TestUtils = require('react-dom/test-utils');
+import TestUtils from 'react-dom/test-utils';
 
 //the following is the component we want to test.
 // const TodoSearch = require('TodoSearch');

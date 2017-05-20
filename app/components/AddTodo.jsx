@@ -1,5 +1,6 @@
-var React = require('react');
-var {connect} = require('react-redux');
+import React from 'react';
+import {connect} from 'react-redux';
+
 var actions = require('actions');
 
 export var AddTodo = React.createClass({

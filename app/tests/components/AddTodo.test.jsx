@@ -1,14 +1,16 @@
 //the following are the libraries needed for testing.
-const React = require('react');
-const ReactDOM = require('react-dom');
-const expect = require('expect');
-const $ = require('jQuery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import expect from 'expect';
+import $ from 'jQuery';
 //const TestUtils = require('react-addons-test-utils');
-const TestUtils = require('react-dom/test-utils');
+import TestUtils from 'react-dom/test-utils';
 
 import * as actions from 'actions';
 //the following is the component we want to test.
-const {AddTodo} = require('AddTodo');
+//const {AddTodo} = require('AddTodo');
+import {AddTodo} from 'AddTodo';
 
 describe('AddTodo', () => {
   it('Should exist.', () => {

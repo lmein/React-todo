@@ -1,7 +1,8 @@
-const expect = require('expect');
+import expect from 'expect';
 //deep freeze checks to see if the values passed into the reducers change.  If so, test fails.
-const df = require('deep-freeze-strict');
-const reducers = require('reducers');
+import df from 'deep-freeze-strict';
+
+var reducers = require('reducers');
 
 describe('Reducers', () => {
   describe('searchTextReducer', () => {

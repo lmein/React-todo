@@ -1,7 +1,7 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const {Route, Router, IndexRoute, hashHistory} = require('react-router');
-const {Provider} = require('react-redux');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import {Provider} from 'react-redux';
 // const Route = require('react-router').Route;
 // const Router = require('react-router').Router;
 // const IndexRoute = require('react-router').IndexRoute;
@@ -16,15 +16,17 @@ var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
-store.subscribe(() => {
-  var state = store.getState();
-  console.log('New state: ', store.getState());
-  TodoAPI.setTodos(state.todos);
-});
+// store.subscribe(() => {
+//   var state = store.getState();
+//   console.log('New state: ', store.getState());
+//   TodoAPI.setTodos(state.todos);
+// });
 
 //gets any todos in local storage
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+  // var initialTodos = TodoAPI.getTodos();
+  // store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.startAddTodos());
+
 // store.dispatch(actions.addTodo('Get the mail.'));
 // store.dispatch(actions.setSearchText('mail'));
 // store.dispatch(actions.toggleShowCompleted());

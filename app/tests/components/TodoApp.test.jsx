@@ -1,15 +1,16 @@
 //the following are the libraries needed for testing.
-const React = require('react');
-const ReactDOM = require('react-dom');
-const {Provider} = require('react-redux');
-const expect = require('expect');
-const $ = require('jQuery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import expect from 'expect';
+import $ from 'jQuery';
 //const TestUtils = require('react-addons-test-utils');
-const TestUtils = require('react-dom/test-utils');
+import TestUtils from 'react-dom/test-utils';
 
 //the following is the component we want to test.
 const TodoApp = require('TodoApp');
 var configureStore = require('configureStore');
+//import {configure} from 'configureStore';
 // var TodoList = require('TodoList');
 import TodoList from 'TodoList';
 
