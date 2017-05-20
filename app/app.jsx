@@ -10,6 +10,8 @@ const {Provider} = require('react-redux');
 // const Main = require('Main');
 const TodoApp = require('TodoApp');
 
+// import './../playground/firebase/index.js';
+
 var actions = require('actions');
 var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');

@@ -6,6 +6,7 @@ const $ = require('jQuery');
 //const TestUtils = require('react-addons-test-utils');
 const TestUtils = require('react-dom/test-utils');
 
+import * as actions from 'actions';
 //the following is the component we want to test.
 const {AddTodo} = require('AddTodo');
 
@@ -16,10 +17,11 @@ describe('AddTodo', () => {
 
   it('Should dispatch ADD_TODO when valid todo text.', () => {
     var todoText = 'Check mail.';
-    var action = {
-      type: 'ADD_TODO',
-      text: todoText
-    }
+    // var action = {
+    //   type: 'ADD_TODO',
+    //   text: todoText
+    // }
+    var action = actions.startAddTodo(todoText);
     var spy = expect.createSpy();
     // var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
     var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
