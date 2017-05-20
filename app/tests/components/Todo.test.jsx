@@ -1,14 +1,15 @@
 //the following are the libraries needed for testing.
-const React = require('react');
-const ReactDOM = require('react-dom');
-const expect = require('expect');
-const $ = require('jQuery');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import expect from 'expect';
+import $ from 'jQuery';
 //const TestUtils = require('react-addons-test-utils');
-const TestUtils = require('react-dom/test-utils');
+import TestUtils from 'react-dom/test-utils';
 
+import * as actions from 'actions';
 //the following is the component we want to test.
 // const Todo = require('Todo');
-const {Todo} = require('Todo');
+import {Todo} from 'Todo';
 
 describe('Todo', () => {
   it('Should exist.', () => {
@@ -21,6 +22,8 @@ describe('Todo', () => {
       text: 'Dummy test item 1',
       completed: true
     };
+    var action = actions.startToggleTodo(todoData.id, !todoData.completed);
+
     var spy = expect.createSpy();
     //var todo = TestUtils.renderIntoDocument(<Todo {...todoData} onToggle={spy}/>);
     var todo = TestUtils.renderIntoDocument(<Todo {...todoData} dispatch={spy}/>);
@@ -30,10 +33,7 @@ describe('Todo', () => {
     TestUtils.Simulate.click($el[0]);
 
     //expect(spy).toHaveBeenCalledWith(1);
-    expect(spy).toHaveBeenCalledWith({
-      type: 'TOGGLE_TODO',
-      id: todoData.id
-    });
+    expect(spy).toHaveBeenCalledWith(action);
 
   });
 });
