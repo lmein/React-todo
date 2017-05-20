@@ -21,6 +21,7 @@ import router from 'app/router/';
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(actions.login(user.uid));
+    store.dispatch(actions.startAddTodos());
     hashHistory.push('/todos');
   } else {
     store.dispatch(actions.logout());
@@ -37,8 +38,6 @@ firebase.auth().onAuthStateChanged((user) => {
 //gets any todos in local storage
   // var initialTodos = TodoAPI.getTodos();
   // store.dispatch(actions.addTodos(initialTodos));
-store.dispatch(actions.startAddTodos());
-
 // store.dispatch(actions.addTodo('Get the mail.'));
 // store.dispatch(actions.setSearchText('mail'));
 // store.dispatch(actions.toggleShowCompleted());
