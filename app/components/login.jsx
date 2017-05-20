@@ -3,6 +3,7 @@ import * as Redux from 'react-redux';
 
 import * as actions from 'actions';
 
+//note
 export var Login = React.createClass({
   onLogin () {
     var {dispatch} = this.props;

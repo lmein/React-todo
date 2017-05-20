@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Router, IndexRoute, hashHistory} from 'react-router';
 
 import TodoApp from 'TodoApp';
-import Login from 'Login';
+import Login from 'login';
 import firebase from 'app/firebase/';
 
 var requireLogin = (nextState, replace, next) => {
