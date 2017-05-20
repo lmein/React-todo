@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Route, Router, IndexRoute, hashHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
 // const Route = require('react-router').Route;
 // const Router = require('react-router').Router;
@@ -8,14 +8,23 @@ import {Provider} from 'react-redux';
 // const hashHistory = require('react-router').hashHistory;
 // weather api key: df7e3c98ca0017fe242189315a17b64e
 // const Main = require('Main');
-import TodoApp from 'TodoApp';
-import Login from 'Login';
-
+// import TodoApp from 'TodoApp';
+// import Login from 'Login';
 // import './../playground/firebase/index.js';
 
 var actions = require('actions');
 var store = require('configureStore').configure();
-var TodoAPI = require('TodoAPI');
+// var TodoAPI = require('TodoAPI');
+import firebase from 'app/firebase/';
+import router from 'app/router/';
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    hashHistory.push('/todos');
+  } else {
+    hashHistory.push('/');
+  }
+});
 
 // store.subscribe(() => {
 //   var state = store.getState();
@@ -42,14 +51,29 @@ require('style-loader!css-loader!sass-loader!applicationStyles');
 //starts up foundation
 $(document).foundation();
 
+// var requireLogin = (nextState, replace, next) => {
+//   if (!firebase.auth().currentUser) {
+//     replace('/');
+//   }
+//   next();
+// };
+//
+// var redirectIfLoggedIn = (nextState, replace, next) => {
+//   if (firebase.auth().currentUser) {
+//     replace('/todos');
+//   }
+//   next();
+// };
+// <Router history={hashHistory}>
+//   <Route exact path="/">
+//     <Route path="todos" component={TodoApp} onEnter={requireLogin}/>
+//     <IndexRoute component={Login} onEnter={redirectIfLoggedIn}/>
+//   </Route>
+// </Router>
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>
-      <Route exact path="/">
-        <Route path="todos" component={TodoApp}/>
-        <IndexRoute component={Login}/>
-      </Route>
-    </Router>
+    {router}
+
   </Provider>,
   //
 
