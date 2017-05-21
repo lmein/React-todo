@@ -4,8 +4,9 @@ import moment from 'moment';
 
 var actions = require('actions');
 
-export var Todo = React.createClass({
-  render: function () {
+//export var Todo = React.createClass({
+export class Todo extends React.Component {
+  render () {
     var {id, text, completed, createdAt, completedAt, dispatch} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo';
     var renderDate = () => {
@@ -22,22 +23,22 @@ export var Todo = React.createClass({
     //var {id} = this.props;
               // this.props.onToggle(id);
                                   // dispatch(actions.toggleTodo(id));
-              return (
-                <div className={todoClassName} onClick={() => {
-                    dispatch(actions.startToggleTodo(id, !completed));
-                  }}>
-                  <div>
-                    <input type="checkbox" checked={completed}/>
-                  </div>
-                  <div>
-                    <p>{text}</p>
-                    <p className="todo__subtext">{renderDate()}</p>
-                  </div>
-                </div>
-              )
-            }
-          });
-
+      return (
+        <div className={todoClassName} onClick={() => {
+          dispatch(actions.startToggleTodo(id, !completed));
+          }}>
+          <div>
+            <input type="checkbox" checked={completed}/>
+          </div>
+          <div>
+            <p>{text}</p>
+            <p className="todo__subtext">{renderDate()}</p>
+          </div>
+        </div>
+      )
+    }
+//});
+};
 export default connect()(Todo);
 // module.exports = Todo;
 // module.exports = connect()(Todo);

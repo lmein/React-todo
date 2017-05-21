@@ -12,7 +12,7 @@ module.exports = {
   // getTodos: function () {
   //    var stringTodos = localStorage.getItem('todos');
   //    var todos = [];
-  // 
+  //
   //    try {
   //      todos = JSON.parse(stringTodos);
   //    } catch (e) {
@@ -39,7 +39,7 @@ module.exports = {
     filteredTodos = filteredTodos.filter((todo) => {
       var text = todo.text.toLowerCase();
       //if nothing is in search box, return everything OR text contains the text search phrase
-      return searchText.length === 0 || text.indexOf(searchText) > -1;
+      return searchText.length === 0 || text.indexOf(searchText.toLowerCase()) > -1;
     });
 
     //Sort Todos with non-completed first
